@@ -1,4 +1,4 @@
-# skipy
+# Skipy
 
 ## requirements
 
