@@ -34,6 +34,11 @@ class DriveService:
             "drive", "v3", credentials=creds, cache_discovery=False
         )
 
+    def get_shared_drives(self):
+        results = self.client.drives().list(pageSize=1000).execute()
+        drives = results.get("drives", [])
+        return drives
+
     def create_folder(self, name: str, folder_id: str) -> str:
         file_metadata = {
             "name": name,
