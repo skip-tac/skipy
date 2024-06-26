@@ -53,6 +53,36 @@ class DriveService:
 
         return folder.get("id")
 
+    def get_files(self, parent_folder_id: str, share_drive_id: str) -> list:
+        try:
+            list_ = []
+            query = (
+                "'%s' in parents and mimeType != 'application/vnd.google-apps.folder' \
+                and mimeType != 'application/vnd.google-apps.shortcut' \
+                and trashed=false"
+                % parent_folder_id
+            )
+            results = (
+                self.client.files()
+                .list(
+                    q=query,
+                    driveId=share_drive_id,
+                    corpora="drive",
+                    includeItemsFromAllDrives=True,
+                    supportsAllDrives=True,
+                    pageSize=1000,
+                    fields="nextPageToken, files(name,id)",
+                )
+                .execute()
+            )
+            items = results.get("files", [])
+            for item in items:
+                item_name = item["name"]
+                list_.append({"name": item_name, "id": item["id"]})
+        except Exception as e:
+            raise e
+        return list_
+
     def get_folders(self, parent_folder_id: str, share_drive_id: str) -> list:
         try:
             list_ = []
