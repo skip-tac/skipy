@@ -29,12 +29,12 @@ class SheetService:
         )
 
     def get_values(
-        self, sheet_id: str, ranges: list[str], major_dimension: str = "ROWS"
+        self, ss_id: str, ranges: list[str], major_dimension: str = "ROWS"
     ):
         """Get values from a sheet.
 
         Args:
-            sheet_id: Google Spreadsheet ID.
+            ss_id: Google Spreadsheet ID.
             ranges: list of Ranges.
             major_dimension: Either "ROWS" or "COLUMNS".
 
@@ -55,7 +55,7 @@ class SheetService:
         values = (
             sheet.values()
             .batchGet(
-                spreadsheetId=sheet_id,
+                spreadsheetId=ss_id,
                 ranges=ranges,
                 majorDimension=major_dimension,
             )
@@ -74,18 +74,18 @@ class SheetService:
 
     def post_values(
         self,
-        sheet_id: str,
+        ss_id: str,
         values: list,
         sheet_name: str,
         major_dimension: str = "ROWS",
-        start_row: int = 0,
-        start_col: int = 0,
+        start_row: int = 1,
+        start_col: int = 1,
         range: str | None = None,
     ):
         """Post values to a sheet.
 
         Args:
-            sheet_id: Google Spreadsheet ID.
+            ss_id: Google Spreadsheet ID.
             values: List of values to be inserted.
             sheet_name: Name of the sheet.
             major_dimension: Either "ROWS" or "COLUMNS".
@@ -109,7 +109,7 @@ class SheetService:
         r = (
             sheet.values()
             .update(
-                spreadsheetId=sheet_id,
+                spreadsheetId=ss_id,
                 body=body,
                 range=range,
                 valueInputOption="USER_ENTERED",
