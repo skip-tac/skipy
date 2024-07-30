@@ -196,8 +196,6 @@ class Chatwork:
         title: str = "From Python",
         to_names: list[str] | None = None,
     ):
-        format_message = f"""
-        {self._make_firstline(to_names)}
-        [info][title]{title}[/title]{message}[/info]
-        """
+        format_message = f"""{self._make_firstline(to_names)}
+[info][title]{title}[/title]{message}[/info]"""
         return format_message
