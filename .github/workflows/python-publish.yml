@@ -23,7 +23,7 @@ jobs:
           PYPI_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
           PYPI_TOKEN: ${{ secrets.PYPI_TOKEN }}
         run: |
-          poetry self add poetry-version-plugin
+          #poetry self add poetry-version-plugin
           poetry config pypi-token.pypi $PYPI_TOKEN
           poetry build
           #poetry publish -u $POETRY_USERNAME -p $POETRY_PASSWORD

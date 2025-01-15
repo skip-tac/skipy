@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "skipy"
-version = "0"
+version = "0.2.1"
 description = "Skip-tac python modules"
 authors = ["syamaguc <programmer2844@gmail.com>"]
 license = "MIT"
@@ -33,17 +33,17 @@ ignore_missing_imports = true
 [tool.ruff]
 # https://docs.astral.sh/ruff/rules/
 select = [
-    "F", # pyflakes
-    "E", # pycodestyle
-    "W", # pycodestyle warnings
-    "I", # isort
-    "D", # pydocstyle
-    "N", # pep8-naming
+  "F", # pyflakes
+  "E", # pycodestyle
+  "W", # pycodestyle warnings
+  "I", # isort
+  "D", # pydocstyle
+  "N", # pep8-naming
 ]
 
 line-length = 88
 
-ignore = ["D100","D101", "D102", "D103", "D104", "D107"]
+ignore = ["D100", "D101", "D102", "D103", "D104", "D107"]
 
 unsafe-fixes = true
 
