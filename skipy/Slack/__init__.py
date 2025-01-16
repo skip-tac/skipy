@@ -1,3 +1,3 @@
-from .__wrapper import Slack
+from .__wrapper import Slack, SlackWebClient
 
-__all__ = ["Slack"]
+__all__ = ["Slack", "SlackWebClient"]
