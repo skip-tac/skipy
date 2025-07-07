@@ -39,10 +39,13 @@ class Chatwork:
         Raises:
             Raises stored :class:`HTTPError`, if one occurred.
         """
+        headers = self._make_headers()
+        headers.setdefault("Content-Type", "application/x-www-form-urlencoded")
+
         res = requests.post(
-            self._make_url("rooms/{}/messages".format(room_id)),
-            headers=self._make_headers(),
-            params=self._make_body(message=message),
+            self._make_url(f"rooms/{room_id}/messages"),
+            headers=headers,
+            data=self._make_body(message=message) , 
         )
         return self._check_res(res, dict)
 
