@@ -66,7 +66,7 @@ class Chatwork:
         res = requests.post(
             self._make_url("rooms/{}/files".format(room_id)),
             headers=self._make_headers(),
-            params=self._make_body(message=message),
+            data=self._make_body(message=message),
             files=self._make_files(file_path),
         )
         return self._check_res(res, dict)
@@ -93,7 +93,7 @@ class Chatwork:
         res = requests.post(
             self._make_url("rooms/{}/tasks".format(room_id)),
             headers=self._make_headers(),
-            params=self._make_body(message=message, to_ids=to_ids),
+            data=self._make_body(message=message, to_ids=to_ids),
         )
         return self._check_res(res, dict)
 
