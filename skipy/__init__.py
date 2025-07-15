@@ -1,1 +1,1 @@
-from . import AWS, GCP, Chatwork, Selenium, Slack
+from . import AWS, GCP, Chatwork, OpenAI, Selenium, Slack
