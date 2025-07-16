@@ -3,7 +3,7 @@ from openai import OpenAI
 
 class ChatGPTClient:
     def __init__(self,api_key):
-        self.openai = OpenAI(api_key)
+        self.openai = OpenAI(api_key=api_key)
 
     # === ChatGPTにエラー内容を投げる関数 ===
     def ask_chatgpt(self, error_trace):
